@@ -13,8 +13,12 @@ namespace UsersApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddCors();
-            
+            services.AddCors(o => o.AddPolicy("AllowOrigins", builder =>
+            {
+                builder.WithOrigins("http://localhost:3004")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             var conventionPack = new ConventionPack
             {
                 new CamelCaseElementNameConvention(),

@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace UsersApi.Domain
 {
-    public class PositionService
+    public class PositionDataService : IPositionDataService
     {
         public Position GetById(string id)
         {

@@ -12,6 +12,10 @@ namespace UsersApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPositionDataService, PositionDataService>();
+            services.AddTransient<IUserDataService, UserDataService>();
+            
             services.AddControllers();
             services.AddCors(o => o.AddPolicy("AllowOrigins", builder =>
             {
